@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/home-design-finder/static/css/main.f32a046d.css",
+    "main.js": "/home-design-finder/static/js/main.02459446.js",
+    "static/js/453.8739d0ab.chunk.js": "/home-design-finder/static/js/453.8739d0ab.chunk.js",
+    "index.html": "/home-design-finder/index.html",
+    "main.f32a046d.css.map": "/home-design-finder/static/css/main.f32a046d.css.map",
+    "main.02459446.js.map": "/home-design-finder/static/js/main.02459446.js.map",
+    "453.8739d0ab.chunk.js.map": "/home-design-finder/static/js/453.8739d0ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f32a046d.css",
+    "static/js/main.02459446.js"
+  ]
+}
