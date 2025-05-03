@@ -1,42 +1,31 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+import { HOUSE_PLAN_IMAGES } from '../../constants/images';
 
-// Default fallback image URL from a reliable source
-const DEFAULT_FALLBACK = 'https://placehold.co/600x400/e9ecef/495057?text=Image+Not+Found';
-
-interface ImageWithFallbackProps {
-  src: string;
-  alt: string;
-  className?: string;
+interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
-  [key: string]: any; // For other props
 }
+
+const StyledImage = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
 
 const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   src,
   alt,
-  className,
-  fallbackSrc = DEFAULT_FALLBACK,
+  fallbackSrc = HOUSE_PLAN_IMAGES.FALLBACK,
   ...props
 }) => {
   const [imgSrc, setImgSrc] = useState(src);
-  const [hasError, setHasError] = useState(false);
-
-  const handleError = () => {
-    if (!hasError) {
+  
+  const onError = () => {
+    if (imgSrc !== fallbackSrc) {
       setImgSrc(fallbackSrc);
-      setHasError(true);
     }
   };
-
-  return (
-    <img 
-      src={imgSrc} 
-      alt={alt} 
-      className={className} 
-      onError={handleError} 
-      {...props} 
-    />
-  );
+  
+  return <StyledImage src={imgSrc} alt={alt} onError={onError} {...props} />;
 };
 
 export default ImageWithFallback;

@@ -1,74 +1,86 @@
-import { DefaultTheme } from 'styled-components';
-
-const theme: DefaultTheme = {
+const theme = {
   colors: {
-    primary: '#3a5a40', // Forest green - architectural/home design feel
-    primaryHover: '#344e41',
-    primaryLight: '#a3b18a',
-    primaryDark: '#344e41',
-    secondary: '#588157',
-    accent: '#dad7cd',
-    accentHover: '#c9c7b8',
-    success: '#52b788',
-    warning: '#ffb703',
-    danger: '#e63946',
-    background: '#ffffff',
-    backgroundAlt: '#f8f9fa',
-    text: '#2f3e46',
-    textLight: '#6c757d',
-    border: '#dee2e6',
-    borderLight: '#f1f1f1',
-    borderDark: '#ced4da',
+    primary: '#2c3e50',
+    primaryDark: '#1a252f',
+    primaryLight: '#34495e',
+    primaryLightest: '#ecf0f1',
+    primaryHover: '#3a526d',
+    secondary: '#3498db',
+    secondaryDark: '#2980b9',
+    accent: '#e67e22',
+    accentHover: '#d35400',
+    text: '#333333',
+    textLight: '#7f8c8d',
+    background: '#f9f9f9',
+    backgroundAlt: '#f5f7fa',
+    border: '#dddddd',
+    borderLight: '#eeeeee',
+    borderDark: '#bbbbbb',
+    error: '#e74c3c',
+    danger: '#c0392b',
+    success: '#2ecc71',
+    warning: '#f39c12'
   },
   typography: {
-    fontFamily: "'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    bodyFontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    headingFontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
     fontSize: '16px',
-    headingFontFamily: "'Playfair Display', serif",
     headingFontWeight: 600,
-    headingLineHeight: 1.3,
-    baseLineHeight: 1.5,
+    headingLineHeight: 1.2,
+    baseLineHeight: 1.6
   },
-  spacing: {
-    xs: '0.25rem',
-    sm: '0.5rem',
-    md: '1rem',
-    lg: '2rem',
-    xl: '4rem',
-    xxl: '8rem',
+  fonts: {
+    body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    heading: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+  },
+  fontSizes: {
+    small: '0.875rem',
+    medium: '1rem',
+    large: '1.25rem',
+    xlarge: '1.5rem',
+    xxlarge: '2rem',
+    xxxlarge: '2.5rem'
+  },
+  fontWeights: {
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700
   },
   breakpoints: {
     xs: '480px',
     sm: '576px',
     md: '768px',
     lg: '992px',
-    xl: '1200px',
+    xl: '1200px'
   },
-  shadows: {
-    small: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    medium: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    large: '0 8px 16px rgba(0, 0, 0, 0.1)',
+  spacing: {
+    xs: '0.25rem',
+    sm: '0.5rem',
+    md: '1rem',
+    lg: '1.5rem',
+    xl: '2rem',
+    xxl: '3rem'
   },
   borderRadius: {
     small: '4px',
     medium: '8px',
-    large: '12px',
-    round: '50%',
+    large: '16px',
+    round: '50%'
+  },
+  shadows: {
+    small: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    medium: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    large: '0 8px 16px rgba(0, 0, 0, 0.1)'
   },
   transitions: {
-    fast: 'all 0.1s ease',
-    medium: 'all 0.2s ease',
-    slow: 'all 0.3s ease',
-    short: 'all 0.1s ease',
-    long: 'all 0.5s ease',
-  },
-  fontSizes: {
-    small: '0.875rem',
-    body: '1rem',
-    h1: '2.5rem',
-    h2: '2rem',
-    h3: '1.5rem',
-    h4: '1.25rem',
-  },
+    fast: '0.2s',
+    medium: '0.3s',
+    slow: '0.5s',
+    short: '0.15s',
+    long: '0.7s'
+  }
 };
 
 export default theme;

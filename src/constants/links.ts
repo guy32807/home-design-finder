@@ -16,82 +16,95 @@ const ARCHITECTURAL_DESIGNS_ID = '13800729';
 // Base URL for destination links
 const ARCHITECTURAL_DESIGNS_BASE_URL = 'https://www.architecturaldesigns.com';
 
-// Main affiliate link pattern
-export const AFFILIATE_LINKS = {
-  // Base affiliate URL
-  ARCHITECTURAL_DESIGNS: `${CJ_TRACKING_DOMAINS.tkqlhce}${ARCHITECTURAL_DESIGNS_ID}`,
+/**
+ * Social media links for the site
+ */
+export const SOCIAL_LINKS = {
+  facebook: 'https://www.facebook.com/architecturaldesigns',
+  twitter: 'https://twitter.com/architectdesigns',
+  instagram: 'https://www.instagram.com/architectural_designs',
+  pinterest: 'https://www.pinterest.com/architectdesigns',
+  youtube: 'https://www.youtube.com/user/ArchitecturalDesigns'
 };
 
 /**
- * Generate an affiliate link to Architectural Designs
- * @param destination The destination path on architecturaldesigns.com
- * @param source The source of the referral for tracking
- * @param planId Optional plan ID for specific plans
- * @returns The affiliate link URL
+ * Affiliate program links
  */
-export const getAffiliateLink = (destination: string, source: string, planId?: string): string => {
-  // Format the destination URL
-  let destinationUrl = destination;
-  
-  // If the destination doesn't start with http or /, assume it's a relative path
-  if (!destination.startsWith('http') && !destination.startsWith('/')) {
-    destinationUrl = `/${destination}`;
-  }
-  
-  // If it doesn't include the base domain, add it
-  if (!destinationUrl.includes('architecturaldesigns.com')) {
-    destinationUrl = `${ARCHITECTURAL_DESIGNS_BASE_URL}${destinationUrl}`;
-  }
-  
-  // Encode the destination URL
-  const encodedUrl = encodeURIComponent(destinationUrl);
-  
-  // Create the affiliate link with the url parameter
-  let affiliateUrl = `${AFFILIATE_LINKS.ARCHITECTURAL_DESIGNS}?url=${encodedUrl}`;
+export const AFFILIATE_LINKS = {
+  main: 'https://www.jdoqocy.com/click-9083409-13731686',
+  // Add any other specific affiliate links here
+};
+
+/**
+ * Generates an affiliate link for a house plan
+ * @param planId The ID of the house plan
+ * @param source The source of the click (for tracking)
+ * @returns The complete affiliate link
+ */
+export const getAffiliateLink = (planId: string, source: string = 'general'): string => {
+  // Base affiliate URL from Commission Junction
+  const baseAffiliateUrl = 'https://www.jdoqocy.com/click-9083409-13731686';
   
   // Add tracking parameters
-  affiliateUrl += `&utm_source=homedesignaffiliate&utm_medium=referral&utm_campaign=${source}`;
+  let url = `${baseAffiliateUrl}`;
   
-  // Add the plan ID as cjsku if provided
-  if (planId) {
-    affiliateUrl += `&cjsku=${planId}`;
+  // If specific plan ID is provided, add it as a parameter
+  if (planId && planId !== 'house-plans') {
+    url += `?u=https%3A%2F%2Fwww.architecturaldesigns.com%2Fplans%2F${planId}`;
   }
   
-  return affiliateUrl;
+  // Add source tracking if available
+  if (source && source !== 'general') {
+    url += url.includes('?') ? `&s=${source}` : `?s=${source}`;
+  }
+  
+  return url;
 };
 
 /**
- * Generate a direct link to a specific house plan
+ * Get general site affiliate link
+ * @param category Optional category to link to
+ * @param source Source of the click for tracking
+ * @returns Affiliate link to the category or main site
+ */
+export const getSiteAffiliateLink = (category?: string, source: string = 'general'): string => {
+  // Base affiliate URL from Commission Junction
+  const baseAffiliateUrl = 'https://www.jdoqocy.com/click-9083409-13731686';
+  
+  let url = baseAffiliateUrl;
+  
+  // Add category if provided
+  if (category) {
+    url += `?u=https%3A%2F%2Fwww.architecturaldesigns.com%2F${category}`;
+  }
+  
+  // Add source tracking
+  if (source && source !== 'general') {
+    url += url.includes('?') ? `&s=${source}` : `?s=${source}`;
+  }
+  
+  return url;
+};
+
+/**
+ * Get link to a specific house plan
+ * This is an alias for getAffiliateLink to maintain compatibility 
+ * with existing code that uses getPlanLink
+ * 
  * @param planId The ID of the house plan
- * @param source The source of the referral for tracking
- * @returns The affiliate link URL
+ * @param source Source of the click for tracking
+ * @returns Affiliate link to the specific plan
  */
-export const getPlanLink = (planId: string, source: string): string => {
-  // Format the plan URL path
-  const planPath = `/house-plans/just-plain-charming-${planId}`;
-  
-  // Use the main function to generate the link
-  return getAffiliateLink(planPath, source, planId);
+export const getPlanLink = (planId: string, source: string = 'general'): string => {
+  return getAffiliateLink(planId, source);
 };
 
 /**
- * Generate a link to a specific category of house plans
- * @param category The category (farmhouse, modern, etc)
- * @param source The source of the referral for tracking
- * @returns The affiliate link URL
+ * Get link to a specific category page
+ * @param category The category to link to
+ * @param source Source of the click for tracking
+ * @returns Affiliate link to the category
  */
-export const getCategoryLink = (category: string, source: string): string => {
-  // Format the category URL path
-  const categoryPath = `/house-plans/${category}`;
-  
-  // Use the main function to generate the link
-  return getAffiliateLink(categoryPath, source);
-};
-
-// Social media links
-export const SOCIAL_LINKS = {
-  facebook: 'https://facebook.com/homedesignaffiliate',
-  twitter: 'https://twitter.com/homedesigns',
-  instagram: 'https://instagram.com/homedesigns',
-  pinterest: 'https://pinterest.com/homedesigns'
+export const getCategoryLink = (category: string, source: string = 'general'): string => {
+  return getSiteAffiliateLink(category, source);
 };

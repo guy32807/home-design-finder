@@ -1,59 +1,81 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 
 interface ButtonProps {
   $primary?: boolean;
   $secondary?: boolean;
+  $outline?: boolean;
   $small?: boolean;
   $large?: boolean;
   $fullWidth?: boolean;
+  as?: React.ElementType;
+  onClick?: () => void;
+  children: React.ReactNode;
 }
 
-const Button = styled.button<ButtonProps>`
+const ButtonBase = css<ButtonProps>`
   display: inline-block;
-  padding: ${props => props.$small ? '0.5rem 1rem' : props.$large ? '1rem 2rem' : '0.75rem 1.5rem'};
-  font-size: ${props => props.$small ? '0.875rem' : props.$large ? '1.125rem' : '1rem'};
   font-weight: 500;
   text-align: center;
-  white-space: nowrap;
   vertical-align: middle;
+  border: 1px solid transparent;
+  padding: ${props => props.$small ? '0.375rem 0.75rem' : props.$large ? '0.75rem 1.5rem' : '0.5rem 1rem'};
+  font-size: ${props => props.$small ? '0.875rem' : props.$large ? '1.125rem' : '1rem'};
+  line-height: 1.5;
+  border-radius: ${({ theme }) => theme.borderRadius.small};
   cursor: pointer;
-  user-select: none;
-  border: 2px solid transparent;
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  transition: ${({ theme }) => theme.transitions.medium};
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
   width: ${props => props.$fullWidth ? '100%' : 'auto'};
   
+  /* Primary Button */
   ${props => props.$primary && css`
     background-color: ${({ theme }) => theme.colors.primary};
     color: white;
     
     &:hover, &:focus {
-      background-color: ${({ theme }) => theme.colors.primaryHover};
+      background-color: ${({ theme }) => theme.colors.primaryDark};
       text-decoration: none;
     }
   `}
   
+  /* Secondary Button */
   ${props => props.$secondary && css`
     background-color: ${({ theme }) => theme.colors.secondary};
     color: white;
     
     &:hover, &:focus {
-      background-color: ${({ theme }) => theme.colors.secondaryHover || props.theme.colors.secondary};
-      opacity: 0.9;
+      background-color: ${({ theme }) => theme.colors.secondaryDark};
       text-decoration: none;
     }
   `}
   
-  ${props => !props.$primary && !props.$secondary && css`
+  /* Outline Button */
+  ${props => props.$outline && css`
     background-color: transparent;
     color: ${({ theme }) => theme.colors.primary};
     border-color: ${({ theme }) => theme.colors.primary};
     
     &:hover, &:focus {
-      background-color: ${({ theme }) => theme.colors.primaryLight};
+      background-color: ${({ theme }) => theme.colors.primaryLightest};
       text-decoration: none;
     }
   `}
+  
+  /* Default Button (if no type specified) */
+  ${props => !props.$primary && !props.$secondary && !props.$outline && css`
+    background-color: ${({ theme }) => theme.colors.secondary};
+    color: white;
+    
+    &:hover, &:focus {
+      background-color: ${({ theme }) => theme.colors.secondaryDark};
+      text-decoration: none;
+    }
+  `}
+`;
+
+const Button = styled.button<ButtonProps>`
+  ${ButtonBase}
 `;
 
 export default Button;
