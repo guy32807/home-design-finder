@@ -1,6 +1,7 @@
 {
   "name": "architectural-designs-affiliate",
   "version": "0.1.0",
+  "homepage": "https://guy32807.github.io/home-design-finder",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -16,45 +17,45 @@
     "i18next-browser-languagedetector": "^8.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-helmet": "^6.1.0",
-    "react-helmet-async": "^2.0.5",
+    "react-helmet": "^6.1.0",.5",
     "react-i18next": "^15.5.1",
     "react-markdown": "^8.0.7",
-    "react-router-dom": "^7.5.3",
+    "react-router-dom": "^7.5.3",.3",
     "react-scripts": "5.0.1",
-    "styled-components": "^6.1.17",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "styled-components": "^6.1.17",6.1.17",
+    "typescript": "^4.9.5",,
+    "web-vitals": "^2.1.4""web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build",",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "eject": "react-scripts eject",",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build""deploy": "gh-pages -d build"
   },
-  "eslintConfig": {
+  "eslintConfig": {: {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest" "react-app/jest"
+    ]]
   },
   "browserslist": {
-    "production": [
+    "production": [n": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all""not op_mini all"
     ],
     "development": [
       "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+      "last 1 firefox version",",
+      "last 1 safari version" "last 1 safari version"
+    ]]
   },
   "devDependencies": {
-    "@types/react-helmet": "^6.1.6",
-    "@types/styled-components": "^5.1.34",
-    "gh-pages": "^6.3.0"
-  }
-}
+    "@types/styled-components": "^5.1.34",: "^6.1.6",
+    "gh-pages": "^6.3.0",.1.34",
+    "@types/react-helmet": "^6.1.6" "gh-pages": "^6.3.0"
+  } }
+}}
+
