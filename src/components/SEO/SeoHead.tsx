@@ -1,6 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
+// Add this line to make sure it works in SSR mode
+const helmetContext = {};
+
 interface SeoHeadProps {
   title: string;
   description: string;

@@ -26,10 +26,21 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+  },
+  "reactSnap": {
+    "include": [
+      "/",
+      "/house-plans",
+      "/blog",
+      "/blog/choosing-perfect-house-plan",
+      "/blog/modern-farmhouse-design-trend"
+    ],
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   },
   "eslintConfig": {
     "extends": [
@@ -41,10 +52,10 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
+      "not op_mini all",
+    ], "react-snap": "^1.23.0"
+    "development": [ }
+      "last 1 chrome version",}
       "last 1 firefox version",
       "last 1 safari version"
     ]

@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import ReactSnapHashRouter from './ReactSnapHashRouter'; // Import the custom router
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
@@ -15,7 +16,7 @@ function App() {
   return (
     <ThemeProvider theme={theme as any}>
       <GlobalStyles />
-      <Router>
+      <ReactSnapHashRouter> {/* Replace HashRouter with ReactSnapHashRouter */}
         <Header />
         <main>
           <Routes>
@@ -27,7 +28,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </Router>
+      </ReactSnapHashRouter>
     </ThemeProvider>
   );
 }
