@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/home-design-finder/static/css/main.e6c13ad2.css",
-    "main.js": "/home-design-finder/static/js/main.93204f4b.js",
-    "static/js/453.8739d0ab.chunk.js": "/home-design-finder/static/js/453.8739d0ab.chunk.js",
-    "index.html": "/home-design-finder/index.html",
-    "main.e6c13ad2.css.map": "/home-design-finder/static/css/main.e6c13ad2.css.map",
-    "main.93204f4b.js.map": "/home-design-finder/static/js/main.93204f4b.js.map",
-    "453.8739d0ab.chunk.js.map": "/home-design-finder/static/js/453.8739d0ab.chunk.js.map"
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.2ac4a77e.js",
+    "static/js/453.8739d0ab.chunk.js": "/static/js/453.8739d0ab.chunk.js",
+    "index.html": "/index.html",
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.2ac4a77e.js.map": "/static/js/main.2ac4a77e.js.map",
+    "453.8739d0ab.chunk.js.map": "/static/js/453.8739d0ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.93204f4b.js"
+    "static/js/main.2ac4a77e.js"
   ]
 }
