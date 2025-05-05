@@ -59,6 +59,10 @@ const HeroButtons = styled.div`
   }
 `;
 
+const StyledLink = styled.a`
+  text-decoration: none;
+`;
+
 const SectionTitle = styled.h2`
   font-size: 2.25rem;
   margin-bottom: 1.5rem;
@@ -240,17 +244,15 @@ const HomePage: React.FC = () => {
             {t('home.hero.subtitle', 'Browse thousands of beautiful house plans and architectural designs to find your dream home.')}
           </HeroSubtitle>
           <HeroButtons>
-            <Button 
-              as="a" 
+            <StyledLink 
               href={getAffiliateLink('house-plans', 'hero_button')} 
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackAffiliateClick('hero_button')}
-              $primary 
-              $large
             >
-              {t('home.hero.exploreButton', 'Explore House Plans')}
-            </Button>
+              <Button $primary $large>
+                {t('home.hero.exploreButton', 'Find Your Dream Home')}
+              </Button>
+            </StyledLink>
             <Button as={Link} to="/styles" $large>
               {t('home.hero.browseButton', 'Browse Styles')}
             </Button>

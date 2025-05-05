@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { getAffiliateLink } from '../../constants/links';
-import { Link, NavLink } from 'react-router-dom'; // Import both Link and NavLink
+import Button from '../ui/Button'; // Import the Button component
+import { AFFILIATE_LINKS } from '../../constants/links';
 
-interface HousePlanCardProps {
+export interface HousePlanCardProps {
   id: string;
   name: string;
   image: string;
@@ -19,67 +19,42 @@ interface HousePlanCardProps {
 const Card = styled.div`
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: white;
+  box-shadow: ${({ theme }) => theme.shadows.small};
+  transition: transform 0.3s ease;
+  background-color: #fff;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: ${({ theme }) => theme.shadows.medium};
   }
 `;
 
 const ImageContainer = styled.div`
-  height: 220px;
-  overflow: hidden;
   position: relative;
+  height: 220px;
 `;
 
-const Image = styled.img`
+const PlanImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-  
-  ${Card}:hover & {
-    transform: scale(1.05);
-  }
 `;
 
-const StyleTag = styled.span`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
-`;
-
-const Content = styled.div`
+const PlanContent = styled.div`
   padding: 1.25rem;
 `;
 
-const Name = styled.h3`
+const PlanName = styled.h3`
   font-size: 1.25rem;
-  margin: 0 0 0.5rem;
-  color: ${({ theme }) => theme.colors.primary};
+  margin-bottom: 0.75rem;
+  font-family: ${({ theme }) => theme.typography.headingFontFamily};
 `;
 
-const Architect = styled.p`
-  font-size: 0.85rem;
-  color: ${({ theme }) => theme.colors.textLight};
-  margin: 0 0 1rem;
-`;
-
-const Features = styled.div`
+const PlanFeatures = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
+  font-size: 0.9rem;
 `;
 
 const Feature = styled.div`
@@ -89,93 +64,27 @@ const Feature = styled.div`
 `;
 
 const FeatureValue = styled.span`
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
 `;
 
 const FeatureLabel = styled.span`
-  font-size: 0.8rem;
   color: ${({ theme }) => theme.colors.textLight};
 `;
 
-const Price = styled.div`
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.secondary};
-  margin-bottom: 0.75rem;
+const PlanPrice = styled.div`
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 `;
 
-const Description = styled.p`
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-`;
-
-const ViewButton = styled.a`
-  display: block;
-  text-align: center;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: white;
-  padding: 0.75rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
-  
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryDark};
-  }
-`;
-
-const MobileNavLinks = styled.div`
+const PlanActions = styled.div`
   display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 1rem;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
 `;
 
-const MobileNavLink = styled(NavLink)`
-  color: ${({ theme }) => theme.colors.text};
+const StyledLink = styled.a`
   text-decoration: none;
-  padding: 0.75rem 0;
-  font-weight: 500;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
-  
-  &:last-of-type {
-    border-bottom: none;
-  }
-  
-  &.active {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const MobileButton = styled.button`
-  margin-top: 0.75rem;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: white;
-  border: none;
-  padding: 0.75rem;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primaryDark};
-  }
 `;
 
 const HousePlanCard: React.FC<HousePlanCardProps> = ({
@@ -190,17 +99,25 @@ const HousePlanCard: React.FC<HousePlanCardProps> = ({
   architect,
   style
 }) => {
+  // Format price to USD with comma separators
+  const formattedPrice = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(price);
+  
+  // Create affiliate link with plan ID
+  const planAffiliateLink = `${AFFILIATE_LINKS.housePlans}?plan=${id}`;
+  
   return (
     <Card>
       <ImageContainer>
-        <Image src={image} alt={name} />
-        <StyleTag>{style}</StyleTag>
+        <PlanImage src={image} alt={name} />
       </ImageContainer>
-      <Content>
-        <Name>{name}</Name>
-        <Architect>by {architect}</Architect>
-        
-        <Features>
+      <PlanContent>
+        <PlanName>{name}</PlanName>
+        <PlanFeatures>
           <Feature>
             <FeatureValue>{bedrooms}</FeatureValue>
             <FeatureLabel>Beds</FeatureLabel>
@@ -213,19 +130,18 @@ const HousePlanCard: React.FC<HousePlanCardProps> = ({
             <FeatureValue>{squareFeet.toLocaleString()}</FeatureValue>
             <FeatureLabel>Sq Ft</FeatureLabel>
           </Feature>
-        </Features>
-        
-        <Price>${price}</Price>
-        <Description>{description}</Description>
-        
-        <ViewButton 
-          href={getAffiliateLink(id, 'house_plan_card')} 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          View Plan Details
-        </ViewButton>
-      </Content>
+        </PlanFeatures>
+        <PlanPrice>{formattedPrice}</PlanPrice>
+        <PlanActions>
+          <StyledLink 
+            href={planAffiliateLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button $primary>View Plan Details</Button>
+          </StyledLink>
+        </PlanActions>
+      </PlanContent>
     </Card>
   );
 };

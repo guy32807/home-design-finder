@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/blog-posts';
 import ImageWithFallback from '../components/ui/ImageWithFallback';
+import Button from '../components/ui/Button'; // Import the reusable Button component
 
 const Container = styled.div`
   max-width: 1200px;
@@ -72,10 +73,38 @@ const ReadMoreLink = styled(Link)`
   }
 `;
 
+const FeaturedPost = styled.div`
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
+  border-radius: 8px;
+  text-align: center;
+`;
+
+const FeaturedPostContent = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const BlogPage: React.FC = () => {
   return (
     <Container>
       <PageTitle>Home Design Blog</PageTitle>
+      <FeaturedPost>
+        <FeaturedPostContent>
+          <h2>Finding Your Perfect House Plan</h2>
+          <p>Explore our guide to selecting the ideal house plan for your family's needs and lifestyle.</p>
+          <StyledLink to="/blog/choosing-perfect-house-plan">
+            <Button $primary>
+              Read Featured Article
+            </Button>
+          </StyledLink>
+        </FeaturedPostContent>
+      </FeaturedPost>
       <BlogGrid>
         {blogPosts.map(post => (
           <BlogCard key={post.id}>
@@ -84,7 +113,9 @@ const BlogPage: React.FC = () => {
               <BlogTitle>{post.title}</BlogTitle>
               <BlogMeta>{post.date} | By {post.author}</BlogMeta>
               <BlogExcerpt>{post.excerpt}</BlogExcerpt>
-              <ReadMoreLink to={`/blog/${post.slug}`}>Read More →</ReadMoreLink>
+              <ReadMoreLink to={`/blog/${post.slug}`}>
+                Read More →
+              </ReadMoreLink>
             </BlogContent>
           </BlogCard>
         ))}

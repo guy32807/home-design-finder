@@ -1,17 +1,17 @@
-const CLICK_ID = '9083409';
+const CLICK_ID = '101433563'; // Updated to your new ID
 
 // Map of tracking domains for CJ
 const CJ_TRACKING_DOMAINS = {
-  anrdoezrs: 'https://www.anrdoezrs.net/click-9083409-',
-  dpbolvw: 'https://www.dpbolvw.net/click-9083409-',
-  jdoqocy: 'https://www.jdoqocy.com/click-9083409-',
-  kqzyfj: 'https://www.kqzyfj.com/click-9083409-',
-  ftjcfx: 'https://www.ftjcfx.com/click-9083409-',
-  tkqlhce: 'https://www.tkqlhce.com/click-9083409-'
+  anrdoezrs: `https://www.anrdoezrs.net/click-${CLICK_ID}-`,
+  dpbolvw: `https://www.dpbolvw.net/click-${CLICK_ID}-`,
+  jdoqocy: `https://www.jdoqocy.com/click-${CLICK_ID}-`,
+  kqzyfj: `https://www.kqzyfj.com/click-${CLICK_ID}-`,
+  ftjcfx: `https://www.ftjcfx.com/click-${CLICK_ID}-`,
+  tkqlhce: `https://www.tkqlhce.com/click-${CLICK_ID}-`
 };
 
 // Architectural Designs affiliate link ID
-const ARCHITECTURAL_DESIGNS_ID = '13800729';
+const ARCHITECTURAL_DESIGNS_ID = '13731686';
 
 // Base URL for destination links
 const ARCHITECTURAL_DESIGNS_BASE_URL = 'https://www.architecturaldesigns.com';
@@ -31,7 +31,8 @@ export const SOCIAL_LINKS = {
  * Affiliate program links
  */
 export const AFFILIATE_LINKS = {
-  main: 'https://www.jdoqocy.com/click-9083409-13731686',
+  main: `https://www.kqzyfj.com/click-${CLICK_ID}-13731686`,
+  housePlans: `https://www.kqzyfj.com/click-${CLICK_ID}-13731686?u=https%3A%2F%2Fwww.architecturaldesigns.com%2Fhouse-plans`,
   // Add any other specific affiliate links here
 };
 
@@ -43,7 +44,7 @@ export const AFFILIATE_LINKS = {
  */
 export const getAffiliateLink = (planId: string, source: string = 'general'): string => {
   // Base affiliate URL from Commission Junction
-  const baseAffiliateUrl = 'https://www.jdoqocy.com/click-9083409-13731686';
+  const baseAffiliateUrl = `https://www.kqzyfj.com/click-${CLICK_ID}-13731686`;
   
   // Add tracking parameters
   let url = `${baseAffiliateUrl}`;
@@ -69,7 +70,7 @@ export const getAffiliateLink = (planId: string, source: string = 'general'): st
  */
 export const getSiteAffiliateLink = (category?: string, source: string = 'general'): string => {
   // Base affiliate URL from Commission Junction
-  const baseAffiliateUrl = 'https://www.jdoqocy.com/click-9083409-13731686';
+  const baseAffiliateUrl = `https://www.kqzyfj.com/click-${CLICK_ID}-13731686`;
   
   let url = baseAffiliateUrl;
   
@@ -107,4 +108,13 @@ export const getPlanLink = (planId: string, source: string = 'general'): string 
  */
 export const getCategoryLink = (category: string, source: string = 'general'): string => {
   return getSiteAffiliateLink(category, source);
+};
+
+/**
+ * Get link to the "More Plans" page on Architectural Designs
+ * @param source Source of the click for tracking
+ * @returns Affiliate link to the house plans section
+ */
+export const getMorePlansLink = (source: string = 'load-more'): string => {
+  return `https://www.kqzyfj.com/click-${CLICK_ID}-13731686?u=https%3A%2F%2Fwww.architecturaldesigns.com%2Fhouse-plans&s=${source}`;
 };

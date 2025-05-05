@@ -1,4 +1,33 @@
 import 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+`;
+
+export { GlobalStyles };
+// Alternatively: export default GlobalStyles;
 
 declare module 'styled-components' {
   export interface DefaultTheme {

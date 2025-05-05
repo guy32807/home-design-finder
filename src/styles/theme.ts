@@ -35,12 +35,17 @@ const theme = {
     heading: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
   },
   fontSizes: {
-    small: '0.875rem',
-    medium: '1rem',
-    large: '1.25rem',
-    xlarge: '1.5rem',
-    xxlarge: '2rem',
-    xxxlarge: '2.5rem'
+    small: '0.8rem',
+    body: '1rem',
+    medium: '1.2rem',
+    large: '1.5rem',
+    xlarge: '1.8rem',
+    xxlarge: '2.2rem',
+    xxxlarge: '2.5rem',
+    h1: '2.5rem',
+    h2: '2.0rem',
+    h3: '1.8rem',
+    h4: '1.5rem'
   },
   fontWeights: {
     normal: 400,

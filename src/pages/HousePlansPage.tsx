@@ -5,6 +5,8 @@ import Breadcrumbs from '../components/navigation/Breadcrumbs';
 import HousePlanCard from '../components/house-plans/HousePlanCard';
 import Filters from '../components/house-plans/Filters';
 import FAQ from '../components/content/FAQ';
+import { AFFILIATE_LINKS } from '../constants/links';
+import Button from '../components/ui/Button'; // Import the Button component
 
 const PageContainer = styled.div`
   max-width: 1200px;
@@ -37,20 +39,16 @@ const HousePlansGrid = styled.div`
   margin-bottom: 3rem;
 `;
 
-const LoadMoreButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
+const ViewMoreLink = styled.a`
+  display: inline-block;
+  text-decoration: none;
   margin: 2rem auto;
-  display: block;
-  
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryDark};
-  }
+`;
+
+const ViewMoreContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 `;
 
 interface HousePlan {
@@ -211,6 +209,8 @@ const HousePlansPage: React.FC = () => {
     // In a real app, you would fetch filtered results here
   };
 
+  const morePlansLink = AFFILIATE_LINKS.housePlans;
+
   return (
     <PageContainer>
       <SeoHead 
@@ -253,7 +253,17 @@ const HousePlansPage: React.FC = () => {
             ))}
           </HousePlansGrid>
           
-          <LoadMoreButton>Load More Plans</LoadMoreButton>
+          <ViewMoreContainer>
+            <ViewMoreLink 
+              href={morePlansLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button $primary>
+                View More Plans
+              </Button>
+            </ViewMoreLink>
+          </ViewMoreContainer>
         </>
       )}
       

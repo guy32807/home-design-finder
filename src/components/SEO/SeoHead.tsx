@@ -1,10 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
 
 interface SeoHeadProps {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   keywords?: string;
   image?: string;
   url?: string;
@@ -12,7 +11,7 @@ interface SeoHeadProps {
   locale?: string;
   twitterCardType?: 'summary_large_image' | 'summary';
   articlePublishedTime?: string;
-  articleModifiedTime?: string;
+  articleModifiedTime?: string; // Added this missing prop
   articleTags?: string[];
 }
 
@@ -23,21 +22,19 @@ const SeoHead: React.FC<SeoHeadProps> = ({
   image = 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   url = 'https://homedesignfinder.com/',
   type = 'website',
-  locale,
+  locale = 'en', // Default to English
   twitterCardType = 'summary_large_image',
   articlePublishedTime,
   articleModifiedTime,
   articleTags,
 }) => {
-  const { t, i18n } = useTranslation();
+  // Remove the useTranslation hook and use the props directly
+  const pageTitle = title || 'Modern Architectural House Plans & Designs | Find Your Dream Home';
+  const pageDescription = description || 'Discover beautiful architectural house plans and home designs perfectly suited for modern living. Find your dream home with our curated collection.';
+  const pageKeywords = keywords || 'architectural designs, house plans, modern home designs, floor plans, custom home plans, residential architecture';
   
-  // Use props or fallback to translations
-  const pageTitle = title || t('meta.title', 'Modern Architectural House Plans & Designs | Find Your Dream Home');
-  const pageDescription = description || t('meta.description', 'Discover beautiful architectural house plans and home designs perfectly suited for modern living. Find your dream home with our curated collection.');
-  const pageKeywords = keywords || t('meta.keywords', 'architectural designs, house plans, modern home designs, floor plans, custom home plans, residential architecture');
-  
-  // Determine current locale from i18n or use prop
-  const pageLocale = locale || i18n.language || 'en';
+  // Use prop or default
+  const pageLocale = locale || 'en';
   
   // Create JSON-LD structured data
   const structuredData = {
