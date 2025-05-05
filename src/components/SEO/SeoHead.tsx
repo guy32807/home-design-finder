@@ -21,7 +21,7 @@ const SeoHead: React.FC<SeoHeadProps> = ({
   description,
   keywords,
   image = 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  url = 'https://guy32807.github.io/architectural-designs-affiliate/',
+  url = 'https://homedesignfinder.com/',
   type = 'website',
   locale,
   twitterCardType = 'summary_large_image',
@@ -43,20 +43,20 @@ const SeoHead: React.FC<SeoHeadProps> = ({
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Architectural Designs',
+    name: 'Home Design Finder',
     description: 'Curated collection of architectural house plans and home designs',
-    url: 'https://guy32807.github.io/architectural-designs-affiliate/',
-    logo: 'https://guy32807.github.io/architectural-designs-affiliate/favicon/favicon-512x512.png',
+    url: 'https://homedesignfinder.com/',
+    logo: 'https://homedesignfinder.com/favicon/favicon-512x512.png',
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'info@architecturaldesigns.com',
+      email: 'info@homedesignfinder.com',
       contactType: 'customer service'
     },
     sameAs: [
-      'https://facebook.com/architecturaldesigns',
-      'https://twitter.com/architectdesigns',
-      'https://instagram.com/architectural_designs',
-      'https://pinterest.com/architectdesigns'
+      'https://facebook.com/homedesignfinder',
+      'https://twitter.com/homedesignfinder',
+      'https://instagram.com/homedesignfinder',
+      'https://pinterest.com/homedesignfinder'
     ]
   };
   
@@ -70,14 +70,14 @@ const SeoHead: React.FC<SeoHeadProps> = ({
     dateModified: articleModifiedTime || articlePublishedTime,
     author: {
       '@type': 'Organization',
-      name: 'Architectural Designs'
+      name: 'Home Design Finder'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Architectural Designs',
+      name: 'Home Design Finder',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://guy32807.github.io/architectural-designs-affiliate/logo.png'
+        url: 'https://homedesignfinder.com/logo.png'
       }
     },
     description: pageDescription,
@@ -97,13 +97,13 @@ const SeoHead: React.FC<SeoHeadProps> = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="canonical" href={url} />
 
-      {/* Favicon */}
-      <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-      <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon/favicon.svg" />
-      <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon/favicon-16x16.png" />
-      <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+      {/* Favicon - Using absolute paths without %PUBLIC_URL% */}
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+      <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#2c3e50" />
 
       {/* Language Meta Tags */}
@@ -123,7 +123,7 @@ const SeoHead: React.FC<SeoHeadProps> = ({
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="Architectural Designs" />
+      <meta property="og:site_name" content="Home Design Finder" />
 
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content={twitterCardType} />

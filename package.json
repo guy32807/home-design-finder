@@ -1,7 +1,7 @@
 {
   "name": "architectural-designs-affiliate",
   "version": "0.1.0",
-  "homepage": "https://guy32807.github.io/home-design-finder",
+  "homepage": "https://homedesignfinder.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
