@@ -214,9 +214,11 @@ const HousePlansPage: React.FC = () => {
   return (
     <PageContainer>
       <SeoHead 
-        title="House Plans & Home Designs | Architectural Designs"
-        description="Browse our collection of beautiful house plans and home designs. Find the perfect plan for your dream home with options for every style, size, and budget."
-        keywords="house plans, home designs, floor plans, architectural designs, custom homes, building plans"
+        title="Beautiful House Plans & Home Designs | Home Design Finder"
+        description="Browse our collection of stunning house plans and architectural designs for your dream home. Find floor plans by style, size, and features."
+        url="https://homedesignfinder.com/#/house-plans"
+        image="https://homedesignfinder.com/images/house-plans-collection.jpg"
+        keywords="house plans, home designs, floor plans, architectural designs, modern house plans, farmhouse plans"
       />
       
       {breadcrumbItems && <Breadcrumbs items={breadcrumbItems} />}

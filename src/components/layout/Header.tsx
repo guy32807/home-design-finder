@@ -103,6 +103,13 @@ const Header: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const navItems = [
+    { label: 'Home', path: '/' },
+    { label: 'House Plans', path: '/house-plans' },
+    { label: 'Styles', path: '/styles' },
+    { label: 'Blog', path: '/blog' }
+  ];
+
   return (
     <HeaderContainer>
       <NavContainer>
@@ -117,15 +124,11 @@ const Header: React.FC = () => {
         </MenuButton>
         
         <NavLinks isOpen={isMenuOpen}>
-          <NavItem>
-            <NavLink to="/">Home</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/house-plans">House Plans</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/blog">Blog</NavLink>
-          </NavItem>
+          {navItems.map((item) => (
+            <NavItem key={item.path}>
+              <NavLink to={item.path}>{item.label}</NavLink>
+            </NavItem>
+          ))}
           <NavItem>
             <AffiliateLink 
               href={AFFILIATE_LINKS.main} 

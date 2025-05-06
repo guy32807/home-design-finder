@@ -1,6 +1,5 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 
 // English translations
 const enTranslations = {
@@ -91,18 +90,17 @@ const enTranslations = {
 
 // Initialize i18next
 i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
+  .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources: {
       en: {
         translation: enTranslations
       }
     },
+    lng: 'en', // default language
     fallbackLng: 'en',
-    debug: process.env.NODE_ENV === 'development',
     interpolation: {
-      escapeValue: false, // React already escapes values
+      escapeValue: false // react already safes from xss
     }
   });
 

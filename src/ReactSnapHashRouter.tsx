@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter } from 'react-router-dom';
 
 interface ReactSnapHashRouterProps {
@@ -12,12 +12,14 @@ const ReactSnapHashRouter: React.FC<ReactSnapHashRouterProps> = ({ children }) =
     navigator.userAgent.includes('HeadlessChrome') || 
     window.location.href.includes('?snapshot');
 
-  // When react-snap is running, use the path from the query string
-  if (isSnapshot) {
-    const path = window.location.search.substring(1) || '/';
-    
-    // Add a script that will redirect to the hash route when the page loads
-    React.useEffect(() => {
+  // Extract path for snapshot mode
+  const path = isSnapshot 
+    ? (window.location.search.substring(1) || '/') 
+    : '';
+
+  // Always call useEffect, but only add the script if it's a snapshot
+  useEffect(() => {
+    if (isSnapshot) {
       const script = document.createElement('script');
       script.innerHTML = `
         window.onload = function() {
@@ -25,9 +27,11 @@ const ReactSnapHashRouter: React.FC<ReactSnapHashRouterProps> = ({ children }) =
         }
       `;
       document.head.appendChild(script);
-    }, [path]);
+    }
+  }, [isSnapshot, path]);
 
-    // Return children directly without HashRouter during snapshot
+  // Use conditional rendering, not conditional hook calls
+  if (isSnapshot) {
     return <>{children}</>;
   }
 

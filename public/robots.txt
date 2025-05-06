@@ -2,8 +2,4 @@
 User-agent: *
 Allow: /
 
-# Optimize crawl rate
-Crawl-delay: 1
-
-# Sitemap location
-Sitemap: https://guy32807.github.io/architectural-designs-affiliate/sitemap.xml
+Sitemap: https://homedesignfinder.com/sitemap.xml

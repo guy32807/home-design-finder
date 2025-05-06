@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/blog-posts';
 import ImageWithFallback from '../components/ui/ImageWithFallback';
 import Button from '../components/ui/Button'; // Import the reusable Button component
+import SeoHead from '../components/SEO/SeoHead';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -92,35 +93,44 @@ const StyledLink = styled(Link)`
 
 const BlogPage: React.FC = () => {
   return (
-    <Container>
-      <PageTitle>Home Design Blog</PageTitle>
-      <FeaturedPost>
-        <FeaturedPostContent>
-          <h2>Finding Your Perfect House Plan</h2>
-          <p>Explore our guide to selecting the ideal house plan for your family's needs and lifestyle.</p>
-          <StyledLink to="/blog/choosing-perfect-house-plan">
-            <Button $primary>
-              Read Featured Article
-            </Button>
-          </StyledLink>
-        </FeaturedPostContent>
-      </FeaturedPost>
-      <BlogGrid>
-        {blogPosts.map(post => (
-          <BlogCard key={post.id}>
-            <BlogImage src={post.featuredImage} alt={post.title} />
-            <BlogContent>
-              <BlogTitle>{post.title}</BlogTitle>
-              <BlogMeta>{post.date} | By {post.author}</BlogMeta>
-              <BlogExcerpt>{post.excerpt}</BlogExcerpt>
-              <ReadMoreLink to={`/blog/${post.slug}`}>
-                Read More →
-              </ReadMoreLink>
-            </BlogContent>
-          </BlogCard>
-        ))}
-      </BlogGrid>
-    </Container>
+    <>
+      <SeoHead 
+        title="Home Design Blog | Architectural Tips & Inspiration"
+        description="Explore our home design blog for architectural tips, design trends, and inspiration for your dream home project."
+        url="https://homedesignfinder.com/#/blog"
+        image="https://homedesignfinder.com/images/blog-cover.jpg"
+        keywords="home design blog, architectural design, house plan tips, design inspiration, home building advice"
+      />
+      <Container>
+        <PageTitle>Home Design Blog</PageTitle>
+        <FeaturedPost>
+          <FeaturedPostContent>
+            <h2>Finding Your Perfect House Plan</h2>
+            <p>Explore our guide to selecting the ideal house plan for your family's needs and lifestyle.</p>
+            <StyledLink to="/blog/choosing-perfect-house-plan">
+              <Button $primary>
+                Read Featured Article
+              </Button>
+            </StyledLink>
+          </FeaturedPostContent>
+        </FeaturedPost>
+        <BlogGrid>
+          {blogPosts.map(post => (
+            <BlogCard key={post.id}>
+              <BlogImage src={post.featuredImage} alt={post.title} />
+              <BlogContent>
+                <BlogTitle>{post.title}</BlogTitle>
+                <BlogMeta>{post.date} | By {post.author}</BlogMeta>
+                <BlogExcerpt>{post.excerpt}</BlogExcerpt>
+                <ReadMoreLink to={`/blog/${post.slug}`}>
+                  Read More →
+                </ReadMoreLink>
+              </BlogContent>
+            </BlogCard>
+          ))}
+        </BlogGrid>
+      </Container>
+    </>
   );
 };
 

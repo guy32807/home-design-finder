@@ -1,9 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-// Add this line to make sure it works in SSR mode
-const helmetContext = {};
-
 interface SeoHeadProps {
   title: string;
   description: string;
@@ -14,7 +11,7 @@ interface SeoHeadProps {
   locale?: string;
   twitterCardType?: 'summary_large_image' | 'summary';
   articlePublishedTime?: string;
-  articleModifiedTime?: string; // Added this missing prop
+  articleModifiedTime?: string;
   articleTags?: string[];
 }
 
@@ -22,24 +19,21 @@ const SeoHead: React.FC<SeoHeadProps> = ({
   title,
   description,
   keywords,
-  image = 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+  image = 'https://homedesignfinder.com/images/home-design-social.jpg',
   url = 'https://homedesignfinder.com/',
   type = 'website',
-  locale = 'en', // Default to English
+  locale = 'en',
   twitterCardType = 'summary_large_image',
   articlePublishedTime,
   articleModifiedTime,
   articleTags,
 }) => {
-  // Remove the useTranslation hook and use the props directly
+  // Set default values for SEO
   const pageTitle = title || 'Modern Architectural House Plans & Designs | Find Your Dream Home';
   const pageDescription = description || 'Discover beautiful architectural house plans and home designs perfectly suited for modern living. Find your dream home with our curated collection.';
   const pageKeywords = keywords || 'architectural designs, house plans, modern home designs, floor plans, custom home plans, residential architecture';
   
-  // Use prop or default
-  const pageLocale = locale || 'en';
-  
-  // Create JSON-LD structured data
+  // Create JSON-LD structured data for the organization
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -60,7 +54,7 @@ const SeoHead: React.FC<SeoHeadProps> = ({
     ]
   };
   
-  // If it's an article, add additional structured data
+  // Create JSON-LD structured data for articles
   const articleStructuredData = type === 'article' ? {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -97,23 +91,20 @@ const SeoHead: React.FC<SeoHeadProps> = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="canonical" href={url} />
 
-      {/* Favicon - Using absolute paths without %PUBLIC_URL% */}
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+      {/* Favicon */}
+      <link rel="icon" href="/favicon.svg" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#2c3e50" />
 
       {/* Language Meta Tags */}
-      <html lang={pageLocale} />
-      <meta property="og:locale" content={pageLocale} />
+      <html lang={locale} />
+      <meta property="og:locale" content={locale} />
       <link rel="alternate" href={url} hrefLang="x-default" />
       <link rel="alternate" href={`${url}?lng=en`} hrefLang="en" />
-      <link rel="alternate" href={`${url}?lng=fr`} hrefLang="fr" />
-      <link rel="alternate" href={`${url}?lng=de`} hrefLang="de" />
-      <link rel="alternate" href={`${url}?lng=es`} hrefLang="es" />
 
       {/* Open Graph Meta Tags for Social Media */}
       <meta property="og:title" content={pageTitle} />

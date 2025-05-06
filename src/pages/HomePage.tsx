@@ -7,6 +7,7 @@ import Card from '../components/ui/Card';
 import { getAffiliateLink, getPlanLink, getCategoryLink } from '../constants/links';
 import { HOUSE_PLAN_IMAGES } from '../constants/images';
 import ImageWithFallback from '../components/ui/ImageWithFallback';
+import SeoHead from '../components/SEO/SeoHead';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -48,7 +49,7 @@ const HeroSubtitle = styled.p`
   line-height: 1.6;
 `;
 
-const HeroButtons = styled.div`
+const HeroActions = styled.div`
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -57,6 +58,28 @@ const HeroButtons = styled.div`
     flex-direction: column;
     gap: 0.5rem;
   }
+`;
+
+const PrimaryButton = styled(Link)`
+  text-decoration: none;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+`;
+
+const SecondaryButton = styled(Link)`
+  text-decoration: none;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
 `;
 
 const StyledLink = styled.a`
@@ -237,26 +260,26 @@ const HomePage: React.FC = () => {
   
   return (
     <>
+      <SeoHead 
+        title="Modern Architectural House Plans & Designs | Find Your Dream Home"
+        description="Discover beautiful architectural house plans and home designs perfectly suited for modern living. Find your dream home with our curated collection."
+        url="https://homedesignfinder.com/"
+        image="https://homedesignfinder.com/images/home-hero.jpg"
+      />
       <Hero>
         <HeroContent>
           <HeroTitle>{t('home.hero.title', 'Find Your Perfect House Plan')}</HeroTitle>
           <HeroSubtitle>
             {t('home.hero.subtitle', 'Browse thousands of beautiful house plans and architectural designs to find your dream home.')}
           </HeroSubtitle>
-          <HeroButtons>
-            <StyledLink 
-              href={getAffiliateLink('house-plans', 'hero_button')} 
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button $primary $large>
-                {t('home.hero.exploreButton', 'Find Your Dream Home')}
-              </Button>
-            </StyledLink>
-            <Button as={Link} to="/styles" $large>
-              {t('home.hero.browseButton', 'Browse Styles')}
-            </Button>
-          </HeroButtons>
+          <HeroActions>
+            <PrimaryButton to="/house-plans">
+              {t('home.hero.exploreButton')}
+            </PrimaryButton>
+            <SecondaryButton to="/styles">
+              {t('home.hero.browseButton')}
+            </SecondaryButton>
+          </HeroActions>
         </HeroContent>
       </Hero>
       

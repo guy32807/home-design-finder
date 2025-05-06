@@ -444,6 +444,274 @@ const BlogPostPage: React.FC = () => {
             </FeaturedPlan>
           </>
         )}
+
+        {/* For small-house-plans-maximize-space blog post */}
+        {post.slug === 'small-house-plans-maximize-space' && (
+          <>
+            <h2>Innovative Small House Plans That Feel Spacious</h2>
+            <p>
+              Small house plans have become increasingly popular as homeowners seek efficiency, sustainability, 
+              and lower maintenance. Here are some innovative designs that maximize every square foot.
+            </p>
+            
+            <FeaturedPlan>
+              <PlanImage 
+                src="https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Compact Craftsman Cottage" 
+              />
+              <PlanContent>
+                <PlanTitle>Compact Craftsman Cottage</PlanTitle>
+                <PlanDetails>
+                  950 sq ft • 2 bed • 1 bath • 1-story • Space-efficient design
+                </PlanDetails>
+                <p>
+                  This charming cottage makes the most of its compact footprint with built-in storage, 
+                  multi-functional spaces, and an open concept layout that creates a sense of spaciousness.
+                </p>
+                <StyledLink 
+                  href={AFFILIATE_LINKS.housePlans} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginTop: '1rem', display: 'inline-block' }}
+                >
+                  <Button $primary>
+                    View Similar Plans
+                  </Button>
+                </StyledLink>
+              </PlanContent>
+            </FeaturedPlan>
+            
+            <CTABox>
+              <CTAHeading>Find Your Perfect Small House Plan</CTAHeading>
+              <CTAText>
+                Browse our collection of space-efficient small house plans that combine clever design with 
+                comfort and style. Perfect for first-time homebuyers, downsizers, or vacation properties.
+              </CTAText>
+              <StyledLink 
+                href={`${AFFILIATE_LINKS.housePlans}?maxSqFt=1200`} 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button $primary $large>
+                  Explore Small House Plans
+                </Button>
+              </StyledLink>
+            </CTABox>
+            
+            <h2>Space-Saving Furniture for Small Homes</h2>
+            <p>
+              The right furniture can transform a compact space. Consider these space-saving options that add 
+              functionality without crowding your rooms.
+            </p>
+            
+            <ImageGrid>
+              <GridImage 
+                src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Convertible Furniture" 
+              />
+              <GridImage 
+                src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Built-in Storage" 
+              />
+              <GridImage 
+                src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Minimalist Small Kitchen" 
+              />
+              <GridImage 
+                src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Small Home Office Nook" 
+              />
+            </ImageGrid>
+          </>
+        )}
+
+        {/* For energy-efficient-house-design blog post */}
+        {post.slug === 'energy-efficient-house-design' && (
+          <>
+            <h2>Energy-Efficient House Plans for Different Climates</h2>
+            <p>
+              Designing for energy efficiency requires consideration of your specific climate zone. 
+              These house plans showcase region-specific energy-saving features.
+            </p>
+            
+            <FeaturedPlan>
+              <PlanImage 
+                src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Passive Solar Prairie Home" 
+              />
+              <PlanContent>
+                <PlanTitle>Passive Solar Prairie Home</PlanTitle>
+                <PlanDetails>
+                  2,100 sq ft • 3 bed • 2.5 bath • Energy-efficient design
+                </PlanDetails>
+                <p>
+                  This modern prairie-style home harnesses passive solar principles with south-facing windows, 
+                  thermal mass floors, and strategic roof overhangs that block summer sun while allowing winter warmth.
+                </p>
+                <StyledLink 
+                  href={AFFILIATE_LINKS.housePlans} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginTop: '1rem', display: 'inline-block' }}
+                >
+                  <Button $primary>
+                    View Plan Details
+                  </Button>
+                </StyledLink>
+              </PlanContent>
+            </FeaturedPlan>
+            
+            <FeaturedPlan>
+              <PlanImage 
+                src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Net-Zero Ready Contemporary" 
+              />
+              <PlanContent>
+                <PlanTitle>Net-Zero Ready Contemporary</PlanTitle>
+                <PlanDetails>
+                  2,400 sq ft • 4 bed • 3 bath • Ultra-efficient design
+                </PlanDetails>
+                <p>
+                  Designed for minimal energy use, this home features superior insulation, triple-pane windows, 
+                  and a roof optimized for solar panel installation, allowing homeowners to achieve net-zero energy consumption.
+                </p>
+                <StyledLink 
+                  href={AFFILIATE_LINKS.housePlans} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginTop: '1rem', display: 'inline-block' }}
+                >
+                  <Button $primary>
+                    View Plan Details
+                  </Button>
+                </StyledLink>
+              </PlanContent>
+            </FeaturedPlan>
+            
+            <CTABox>
+              <CTAHeading>Invest in Energy Efficiency</CTAHeading>
+              <CTAText>
+                Browse our collection of energy-efficient house plans designed to reduce utility costs, 
+                increase comfort, and minimize environmental impact.
+              </CTAText>
+              <StyledLink 
+                href={AFFILIATE_LINKS.housePlans} 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button $primary $large>
+                  Explore Energy-Efficient Plans
+                </Button>
+              </StyledLink>
+            </CTABox>
+          </>
+        )}
+
+        {/* For designing-multi-generational-home blog post */}
+        {post.slug === 'designing-multi-generational-home' && (
+          <>
+            <h2>Featured Multi-Generational House Plans</h2>
+            <p>
+              These thoughtfully designed house plans offer flexible living arrangements for multiple generations 
+              under one roof, combining privacy with shared family spaces.
+            </p>
+            
+            <FeaturedPlan>
+              <PlanImage 
+                src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Dual Master Suite Home" 
+              />
+              <PlanContent>
+                <PlanTitle>Dual Master Suite Family Home</PlanTitle>
+                <PlanDetails>
+                  3,200 sq ft • 4 bed • 3.5 bath • Two master suites
+                </PlanDetails>
+                <p>
+                  This versatile home features two full master suites on separate floors, providing privacy for 
+                  multiple adult generations. The open main living areas encourage family togetherness.
+                </p>
+                <StyledLink 
+                  href={AFFILIATE_LINKS.housePlans} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginTop: '1rem', display: 'inline-block' }}
+                >
+                  <Button $primary>
+                    View Plan Details
+                  </Button>
+                </StyledLink>
+              </PlanContent>
+            </FeaturedPlan>
+            
+            <FeaturedPlan>
+              <PlanImage 
+                src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Main Floor In-Law Suite Home" 
+              />
+              <PlanContent>
+                <PlanTitle>Home with Private In-Law Suite</PlanTitle>
+                <PlanDetails>
+                  2,800 sq ft • 4 bed • 3 bath • Separate in-law suite
+                </PlanDetails>
+                <p>
+                  This thoughtful design includes a complete private suite with separate entrance, kitchenette, and living 
+                  area, perfect for aging parents or adult children while maintaining connection to the main household.
+                </p>
+                <StyledLink 
+                  href={AFFILIATE_LINKS.housePlans} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginTop: '1rem', display: 'inline-block' }}
+                >
+                  <Button $primary>
+                    View Plan Details
+                  </Button>
+                </StyledLink>
+              </PlanContent>
+            </FeaturedPlan>
+            
+            <CTABox>
+              <CTAHeading>Find Your Multi-Generational Dream Home</CTAHeading>
+              <CTAText>
+                Browse our collection of multi-generational house plans designed to accommodate extended family 
+                living with privacy, accessibility, and shared spaces for all.
+              </CTAText>
+              <StyledLink 
+                href={`${AFFILIATE_LINKS.housePlans}?features=in-law-suite`} 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button $primary $large>
+                  Explore Multi-Generational Plans
+                </Button>
+              </StyledLink>
+            </CTABox>
+            
+            <h2>Accessibility Features for Multi-Generational Living</h2>
+            <p>
+              These key universal design elements make homes more comfortable and accessible for family members of all ages.
+            </p>
+            
+            <ImageGrid>
+              <GridImage 
+                src="https://images.unsplash.com/photo-1560185007-5f0bb1866cab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Zero-Step Entry" 
+              />
+              <GridImage 
+                src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Accessible Kitchen" 
+              />
+              <GridImage 
+                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Curbless Shower" 
+              />
+              <GridImage 
+                src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Wide Doorways and Hallways" 
+              />
+            </ImageGrid>
+          </>
+        )}
         
         {/* End-of-article CTA for ALL blog posts */}
         <CTABox>
