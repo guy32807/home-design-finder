@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://homedesignfinder.com/#/blog/tudor-style-homes-timeless-english-charm</loc>
+    <image:image>
+      <image:loc>https://homedesignfinder.com/images/social/tudor-style-homes-timeless-english-charm.png</image:loc>
+      <image:title>Tudor Style Homes: Timeless English Charm for Modern Living</image:title>
+      <image:caption>Classic Tudor Style Home with Half-Timbering Detail</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://homedesignfinder.com/#/blog/choosing-perfect-house-plan</loc>
+    <image:image>
+      <image:loc>https://homedesignfinder.com/images/social/choosing-perfect-house-plan.png</image:loc>
+      <image:title>How to Choose the Perfect House Plan for Your Family</image:title>
+      <image:caption>Family reviewing house plans in their living room</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://homedesignfinder.com/#/blog/modern-farmhouse-design-trend</loc>
+    <image:image>
+      <image:loc>https://homedesignfinder.com/images/social/modern-farmhouse-design-trend.png</image:loc>
+      <image:title>Modern Farmhouse Design: Why This Style Is So Popular</image:title>
+      <image:caption>Modern farmhouse exterior with white siding and black accents</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://homedesignfinder.com/#/blog/small-house-plans-maximize-space</loc>
+    <image:image>
+      <image:loc>https://homedesignfinder.com/images/social/small-house-plans-maximize-space.png</image:loc>
+      <image:title>Small House Plans: How to Maximize Space and Style</image:title>
+      <image:caption>Compact modern home with clever space-saving design elements</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://homedesignfinder.com/#/blog/energy-efficient-house-design</loc>
+    <image:image>
+      <image:loc>https://homedesignfinder.com/images/social/energy-efficient-house-design.png</image:loc>
+      <image:title>Energy-Efficient House Design: Features That Save Money</image:title>
+      <image:caption>Sustainable home with solar panels and energy-efficient windows</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://homedesignfinder.com/#/blog/designing-multi-generational-home</loc>
+    <image:image>
+      <image:loc>https://homedesignfinder.com/images/social/designing-multi-generational-home.png</image:loc>
+      <image:title>Designing a Multi-Generational Home: Floor Plans and Features</image:title>
+      <image:caption>Extended family enjoying time together in a multi-generational home</image:caption>
+    </image:image>
+  </url>
+</urlset>
